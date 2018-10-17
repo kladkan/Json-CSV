@@ -4,9 +4,6 @@
   $current = "новая информация";
   file_put_contents($filedata, $current);*/
 
-
-
-
 //var_dump($argv);
 //$data = array_slice($argv , 1);
 $data = ['money.php', '256.00', 'prazdnik', 'keks'];
@@ -25,29 +22,14 @@ array_unshift($data, date('Y-m-d'));
 print_r($data);
 $data[] = $data2words_string;
 print_r($data);
--------------------------------------
-//array_unshift( , "date('Y-m-d'");
 
-/*//черновик
-$row = 1;
-$handle = fopen("data.csv", "r");
-if ($handle !== FALSE) {
-  $data = fgetcsv($handle, 1000, ",");
-  while ($data !== FALSE) {
-    $num = count($data);
-    echo "<p> $num полей в строке $row:</p>\n";
-    $row++;
-    for ($c=0; $c < $num; $c++) {
-      echo $data[$c] . "<br />\n";
-    }
-    $data = fgetcsv($handle, 1000, ",");
-}
-fclose($handle);
-}
-//черновик
-*/
+
+
+/*черновик
 
 
 
 
+
+черновик */
 ?>
