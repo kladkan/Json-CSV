@@ -12,7 +12,7 @@ $data = array_slice($data, 1); //удаляем из первоначально�
 print_r($data);// получаем массив '256.00', 'prazdnik', 'keks'
 array_splice($data, 1);//удаляем из массива все начиная со второй ячейки
 print_r($data);//получаем 256.00
-array_unshift($data, "date('Y-m-d'),");
+array_unshift($data, date('Y-m-d').",");
 print_r($data);
 $data[] = "$data2words_string\n";
 print_r($data);
