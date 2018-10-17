@@ -1,8 +1,9 @@
 <?php
 
 //var_dump($argv);
-//$data = array_slice($argv , 1);
+//$data = $argv;
 $data = ['money.php', '256.00', 'prazdnik', 'keks'];
+
 print_r($data);
 $data2words = array_slice($data , 2); // массив: prazdnik keks
 print_r($data2words);
