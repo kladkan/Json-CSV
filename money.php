@@ -16,13 +16,15 @@ array_splice($data, 1);//удаляем из массива все начина�
 print_r($data);//получаем 256.00
 array_unshift($data, date('Y-m-d'));
 print_r($data);
-$data[] = $data2words_string;
+$data[] = "$data2words_string\n";
 print_r($data);
 
 $filedata = "data.csv";
 $resource = fopen($filedata, "a+");
-file_put_contents($filedata, $data);
+file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
 
+$getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
+print_r($getdata);
 
 /*черновик
 
