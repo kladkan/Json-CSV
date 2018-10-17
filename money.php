@@ -20,13 +20,16 @@ print_r($data);
 $data[] = "$data2words_string\n";
 print_r($data);
 
+
+
+
+/*
 $filedata = "data.csv";
 $resource = fopen($filedata, "a+");
 file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
-
 $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
 print_r($getdata);
-
+*/
 /*черновик
 
 
