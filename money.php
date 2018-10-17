@@ -25,7 +25,7 @@ array_unshift($data, date('Y-m-d'));
 print_r($data);
 $data[] = $data2words_string;
 print_r($data);
-
+-------------------------------------
 //array_unshift( , "date('Y-m-d'");
 
 /*//черновик
