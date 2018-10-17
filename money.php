@@ -1,8 +1,8 @@
 <?php
-  /*$filedata = "data.csv";
+  $filedata = "data.csv";
   $resource = fopen($filedata, "a+");
   $current = "новая информация";
-  file_put_contents($filedata, $current);*/
+  file_put_contents($filedata, $current);
 
 //var_dump($argv);
 //$data = array_slice($argv , 1);
