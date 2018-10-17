@@ -2,7 +2,7 @@
 
 //var_dump($argv);
 //$data = $argv;
-$data = ['money.php', '256.00', 'prazdnik', 'keks'];
+$data = ['money.php', '256.00', 'prazdnik', 'keks', 'ttttt'];
 print_r($data);
 $data2words = array_slice($data , 2); // массив: prazdnik keks
 print_r($data2words);
@@ -14,19 +14,17 @@ array_splice($data, 1);//удаляем из массива все начина�
 print_r($data);//получаем 256.00
 array_unshift($data, date('Y-m-d').",");
 print_r($data);
-$data[] = "$data2words_string\n";
+$data[] = ','."$data2words_string\n";
 print_r($data);
 
-//возможно тут надо перебрать массив(строку) и добавить запятую к значениям массива в качестве разделителя
 
 
-/*
 $filedata = "data.csv";
 $resource = fopen($filedata, "a+");
 file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
 $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
 print_r($getdata);
-*/
+
 /*черновик
 
 
