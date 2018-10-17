@@ -1,8 +1,4 @@
 <?php
-  $filedata = "data.csv";
-  $resource = fopen($filedata, "a+");
-  $current = "новая информация";
-  file_put_contents($filedata, $current);
 
 //var_dump($argv);
 //$data = array_slice($argv , 1);
@@ -23,6 +19,9 @@ print_r($data);
 $data[] = $data2words_string;
 print_r($data);
 
+$filedata = "data.csv";
+$resource = fopen($filedata, "a+");
+file_put_contents($filedata, $data);
 
 
 /*черновик
