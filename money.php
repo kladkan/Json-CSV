@@ -8,11 +8,23 @@ if ($data[1] == '--today') {
   //открыть из файла значения в виде массива
     if (file("./data.csv", FILE_IGNORE_NEW_LINES) == true) {
       $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
-      echo "est dannie";
+      echo "est file";
       //print_r($data);
-      if ($data [0] === date('Y-m-d')) {
-	       echo "est";
+
+      if ($data == null) {
+        echo 'Net dannyh o pokupkah. Vvedite dannye v formate "cena" "opisanie"';
+        exit;
       }
+
+      print_r($data);
+      foreach ($data as $key => $row) {
+        $row = array(explode(',', $row));
+      }
+      print_r($row);
+
+      //if ($data [0] === date('Y-m-d')) {
+	      // echo "est";
+      //}
     }
   }
   echo "end";
