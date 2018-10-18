@@ -6,28 +6,40 @@ $data = $argv;
 //$data = ['money.php', '--today'];
 if ($data[1] == '--today') {
   //открыть из файла значения в виде массива
-    if (file("./data.csv", FILE_IGNORE_NEW_LINES) == true) {
+    if (file_exists('data.csv')) {
       $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
       echo "est file";
       //print_r($data);
 
-      if ($data == null) {
+      if ($data = null) {
         echo 'Net dannyh o pokupkah. Vvedite dannye v formate "cena" "opisanie"';
         exit;
-      }
+      } else {
+          print_r($data);
 
-      print_r($data);
-      foreach ($data as $key => $row) {
-        $row = array(explode(',', $row));
-      }
-      print_r($row);
+          foreach ($data as $key => $row) {
+            $list[] = explode(',', $row);
+          }
+          print_r($list);
 
-      //if ($data [0] === date('Y-m-d')) {
-	      // echo "est";
-      //}
+          $total = 0.00;
+          foreach ($list as $key => $val) {
+            foreach ($val as $keyin => $value) {
+              if ($value === date('d.m.Y')) {
+                 if ($keyin = 1) {
+                   $total = $total + $val[$keyin];
+                 }
+              }
+            }
+          }
+          echo date('d.m.Y').' rashod za den: '.number_format($total, 2, '.', '');
+        }
+    } else {
+      echo 'no file';
     }
-  }
-  echo "end";
+  }// конец случая да
+  echo "\nend";
+
 /*
   echo 'Ошибка!';
 
@@ -41,7 +53,7 @@ $data = array_slice($data, 1); //удаляем из первоначально�
 //print_r($data);// получаем массив '256.00', 'prazdnik', 'keks'
 array_splice($data, 1);//удаляем из массива все начиная со второй ячейки
 //print_r($data);//получаем 256.00
-array_unshift($data, date('Y-m-d').",");
+array_unshift($data, date('d.m.Y').",");
 //print_r($data);
 $data[] = ','."$data2words_string\n";
 print_r($data);
