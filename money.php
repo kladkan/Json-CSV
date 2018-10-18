@@ -1,18 +1,25 @@
 <?php
 
 //var_dump($argv);
-//$data = $argv;
-$data = ['money.php', '256.00', 'prazdnik', 'keks', 'ttttt'];
-/*$data = ['money.php', '--today'];
+$data = $argv;
+//$data = ['money.php', '256.00', 'prazdnik', 'keks', 'ttttt'];
+//$data = ['money.php', '--today'];
 if ($data[1] == '--today') {
   //открыть из файла значения в виде массива
-  $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
-  print_r($data);
-  exit;
-} else {
+    if (file("./data.csv", FILE_IGNORE_NEW_LINES) == true) {
+      $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
+      echo "est dannie";
+      //print_r($data);
+      if ($data [0] === date('Y-m-d')) {
+	       echo "est";
+      }
+    }
+  }
+  echo "end";
+/*
   echo 'Ошибка!';
-}
-*/
+
+
 print_r($data);
 $data2words = array_slice($data , 2); // массив: prazdnik keks
 //print_r($data2words);
@@ -35,12 +42,10 @@ file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
 $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
 print_r($getdata);
 echo 'Добавлена строка:';
-
+*/
 /*черновик
 
 
-
-
-
 черновик */
+
 ?>
