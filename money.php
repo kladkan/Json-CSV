@@ -2,15 +2,21 @@
 
 //var_dump($argv);
 $data = $argv;
-//$data = ['money.php', '256.00', 'prazdnik', 'keks', 'ttttt'];
-//$data = ['money.php', '--today'];
-if ($data[1] == '--today') {
-  //открыть из файла значения в виде массива
-    if (file_exists('data.csv')) {
-      $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
-      echo "est file";
-      //print_r($data);
+switch (variable) {
+  case 'value':
+    // code...
+    break;
 
+  default:
+    echo 'vvedeny ne korrektnye dannye';
+    break;
+}
+if ($data[1] == '--today') {
+    if (file_exists('data.csv')) {
+
+      $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
+      echo "est file\n";
+      //print_r($data);
       if ($data == null) {
         echo "\n".'Net dannyh o pokupkah. Vvedite dannye v formate "cena" "opisanie"';
       } else {
@@ -19,8 +25,7 @@ if ($data[1] == '--today') {
           foreach ($data as $key => $row) {
             $list[] = explode(',', $row);
           }
-          print_r($list);
-
+          //print_r($list);
           $total = 0.00;
           foreach ($list as $key => $val) {
             foreach ($val as $keyin => $value) {
@@ -36,7 +41,7 @@ if ($data[1] == '--today') {
     } else {
       echo 'no file';
     }
-  }// конец случая да
+  }
   echo "\nend";
 
 /*
