@@ -2,18 +2,24 @@
 
 //var_dump($argv);
 $data = $argv;
+
+/*
 switch (variable) {
   case 'value':
-    // code...
+
     break;
 
   default:
     echo 'vvedeny ne korrektnye dannye';
     break;
 }
+*/
+
+
+
+/* начало проверки за день
 if ($data[1] == '--today') {
     if (file_exists('data.csv')) {
-
       $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
       echo "est file\n";
       //print_r($data);
@@ -39,13 +45,12 @@ if ($data[1] == '--today') {
           echo date('d.m.Y').' rashod za den: '.number_format($total, 2, '.', '');
         }
     } else {
-      echo 'no file';
+      echo 'not faila ili pashodov ne bylo';
     }
   }
-  echo "\nend";
 
-/*
-  echo 'Ошибка!';
+  echo "\nend";
+конец проверки за день*/
 
 
 print_r($data);
@@ -56,24 +61,20 @@ $data2words_string = implode(" ", $data2words); // получаем строку
 $data = array_slice($data, 1); //удаляем из первоначального массива название файла
 //print_r($data);// получаем массив '256.00', 'prazdnik', 'keks'
 array_splice($data, 1);//удаляем из массива все начиная со второй ячейки
-//print_r($data);//получаем 256.00
+print_r($data);//получаем 256.00
 array_unshift($data, date('d.m.Y').",");
-//print_r($data);
+print_r($data);
 $data[] = ','."$data2words_string\n";
 print_r($data);
-
-
-
+$lastdata = implode(" ", $data);
+/*
 $filedata = "data.csv";
 $resource = fopen($filedata, "a+");
 file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
 $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
-print_r($getdata);
-echo 'Добавлена строка:';
-*/
-/*черновик
-
-
-черновик */
+//print_r($getdata);
+$lastdata = $getdata[count($getdata)-1];
+$lastdata = str_replace(',', ', ', $lastdata);*/
+echo "\n".'dobavlena stroka: '.$lastdata."\n";
 
 ?>
