@@ -11,9 +11,8 @@ if ($data[1] == '--today') {
       echo "est file";
       //print_r($data);
 
-      if ($data = null) {
-        echo 'Net dannyh o pokupkah. Vvedite dannye v formate "cena" "opisanie"';
-        exit;
+      if ($data == null) {
+        echo "\n".'Net dannyh o pokupkah. Vvedite dannye v formate "cena" "opisanie"';
       } else {
           print_r($data);
 
