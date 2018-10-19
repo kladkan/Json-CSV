@@ -8,7 +8,7 @@ if ($data[1] == '--today') {
       //echo "est file\n";
       //print_r($data);
       if ($data == null) {
-        echo "\n".'Net dannyh o pokupkah. Vvedite dannye v formate {cena} {opisanie}'."\n";
+        echo "\n".'Нет данных о покупках. Запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
       } else {
           //print_r($data);
           foreach ($data as $key => $row) {
@@ -28,17 +28,17 @@ if ($data[1] == '--today') {
           echo "\n".date('d.m.Y').' rashod za den: '.number_format($total, 2, '.', '')."\n";
         }
     } else {
-      echo "\n".'Net faila ili pokupok ne bylo. Zapustite skript s argumentami {cena} b {opisanie pokupki}'."\n";
+      echo "\n".'Нет покупок или файл не найден. Запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
     }
   } else {
-    echo 'Argumenty zadany ne verno! Ukagite flag --today ili zapustite skript s argumentami {cena} b {opisanie pokupki}';
+    echo "\n".'Аргументы указаны неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
   }
 exit;
 }
 
 if (count($data) > 2) {
   if ((int)$data[1] == 0) {
-    echo 'Dannye o pokypke vvedeny ne verno! Ukagite flag --today ili zapustite skript s argumentami {cena} b {opisanie pokupki}';
+    echo "\n".'Данные о покупке введены неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
   } else {
     //print_r($data);
     $data2words = array_slice($data , 2); // массив: prazdnik keks
@@ -64,10 +64,10 @@ if (count($data) > 2) {
     file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
     $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
     //print_r($getdata);
-    echo "\n".'dobavlena stroka: '.$lastdata."\n";
+    echo "\n".'Добавлена строка: '.$lastdata."\n";
   }
 } else {
-  echo 'Oshibka! Argumenty ne zadany. Ukagite flag --today ili zapustite skript s argumentami {cena} b {opisanie pokupki}';
+  echo 'Ошибка! Аргументы не заданы. Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}';
 }
 
 ?>
