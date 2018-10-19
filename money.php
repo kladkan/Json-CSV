@@ -28,14 +28,13 @@ if ($data[1] == '--today') {
           echo "\n".date('d.m.Y').' rashod za den: '.number_format($total, 2, '.', '')."\n";
         }
     } else {
-      echo 'not faila ili pashodov ne bylo';
+      echo "\n".'Net faila ili pokupok ne bylo. Zapustite skript s argumentami {cena} b {opisanie pokupki}'."\n";
     }
   } else {
     echo 'Argumenty zadany ne verno! Ukagite flag --today ili zapustite skript s argumentami {cena} b {opisanie pokupki}';
   }
 exit;
 }
-//конец проверки за день
 
 if (count($data) > 2) {
   if ((int)$data[1] == 0) {
@@ -70,5 +69,5 @@ if (count($data) > 2) {
 } else {
   echo 'Oshibka! Argumenty ne zadany. Ukagite flag --today ili zapustite skript s argumentami {cena} b {opisanie pokupki}';
 }
-echo "\nend";
+
 ?>
