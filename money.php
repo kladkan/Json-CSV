@@ -25,7 +25,7 @@ if ($data[1] == '--today') {
               }
             }
           }
-          echo "\n".date('d.m.Y').' rashod za den: '.number_format($total, 2, '.', '')."\n";
+          echo "\n".date('d.m.Y').' расход за день: '.number_format($total, 2, '.', '')."\n";
         }
     } else {
       echo "\n".'Нет покупок или файл не найден. Запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
