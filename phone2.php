@@ -10,9 +10,16 @@ $data = json_decode($json, true);
 </head>
 <body>
     <table>
-    <?php foreach ($data as $i => $var) : ?>
-    <?php// echo print_r($data); exit; ?>
-    
+        <tr>
+            <td>Номер</td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Город</td>
+            <td>Улица</td>
+            <td>Дом</td>
+            <td>Телефоны</td>
+        </tr>
+        <?php foreach ($data as $i => $var) : ?>
         <tr>
             <td><?php echo $i+1 ?></td>
             <td><?php echo $var['firstName'] ?></td>
