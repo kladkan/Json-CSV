@@ -3,12 +3,12 @@
 $data = $argv;
 if (count($data) == 2) {
 if ($data[1] == '--today') {
-    if (file_exists('data.csv')) {
-      $data = file("./data.csv", FILE_IGNORE_NEW_LINES);
+    if (file_exists('money.csv')) {
+      $data = file("./money.csv", FILE_IGNORE_NEW_LINES);
       //echo "est file\n";
       //print_r($data);
       if ($data == null) {
-        echo "\n".'Нет данных о покупках. Запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
+        echo "\n".'Нет данных о покупках. Запустите скрипт с аргументами {цена} и {описание покупки}.'."\n";
       } else {
           //print_r($data);
           foreach ($data as $key => $row) {
@@ -28,17 +28,17 @@ if ($data[1] == '--today') {
           echo "\n".date('d.m.Y').' расход за день: '.number_format($total, 2, '.', '')."\n";
         }
     } else {
-      echo "\n".'Нет покупок или файл не найден. Запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
+      echo "\n".'Нет покупок или файл не найден. Запустите скрипт с аргументами {цена} и {описание покупки}.'."\n";
     }
   } else {
-    echo "\n".'Аргументы указаны неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
+    echo "\n".'Аргументы указаны неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}.'."\n";
   }
 exit;
 }
 
 if (count($data) > 2) {
   if ((int)$data[1] == 0) {
-    echo "\n".'Данные о покупке введены неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}'."\n";
+    echo "\n".'Данные о покупке введены неверно! Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}.'."\n";
   } else {
     //print_r($data);
     $data2words = array_slice($data , 2); // массив: prazdnik keks
@@ -59,15 +59,13 @@ if (count($data) > 2) {
     //print_r($data);
     $lastdata = implode(" ", $data);
 
-    $filedata = "data.csv";
-    $resource = fopen($filedata, "a+");
-    file_put_contents($filedata, $data, FILE_APPEND | LOCK_EX);
-    $getdata = file("./data.csv", FILE_IGNORE_NEW_LINES);
+    file_put_contents("money.csv", $data, FILE_APPEND | LOCK_EX);
+    //$getdata = file("./money.csv", FILE_IGNORE_NEW_LINES);
     //print_r($getdata);
     echo "\n".'Добавлена строка: '.$lastdata."\n";
   }
 } else {
-  echo 'Ошибка! Аргументы не заданы. Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}';
+  echo "\n".'Ошибка! Аргументы не заданы. Укажите флаг --today или запустите скрипт с аргументами {цена} и {описание покупки}.'."\n";
 }
 
 ?>
