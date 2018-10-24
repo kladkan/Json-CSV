@@ -15,7 +15,7 @@ $content = json_decode($response, true);
 //print_r($content); exit;
 switch (json_last_error()) {
     case JSON_ERROR_NONE:
-    echo ' — Ошибок нет'."\n";
+    echo " — Ошибок нет\n";
     break;
     case JSON_ERROR_DEPTH:
     echo ' — Достигнута максимальная глубина стека';
