@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('errors_reporting', E_ALL);
 $data = $argv;
 if (count($data) == 1) {
-    echo "\n".'Аргумент скрипта (поисковый запрос) не указан! Запустите скрипт с поисковым запросом.'."\n";
+    echo "\nАргумент скрипта (поисковый запрос) не указан! Запустите скрипт с поисковым запросом.\n";
     exit;
 }
 $book = array_slice($data , 1);
@@ -12,6 +12,7 @@ $encode = urlencode($book);
 $url = 'https://www.googleapis.com/books/v1/volumes?q={'.$encode.'}';
 $response = file_get_contents("$url");
 $content = json_decode($response, true);
+//print_r($content); exit;
 switch (json_last_error()) {
     case JSON_ERROR_NONE:
     echo ' — Ошибок нет'."\n";
@@ -73,8 +74,8 @@ foreach ($content as $key => $value) {
 
 //Выводим отладочную информацию в браузер
 if ($rec !== false) {
-    echo "Данные о книгах записаны в файл books.csv";
+    echo 'Данные о книгах записаны в файл books.csv';
 } else {
-    echo "Ошибка записи файла books.csv";
+    echo 'Ошибка записи файла books.csv';
 }
 ?>
