@@ -11,19 +11,16 @@ if ($data[1] == '--today') {
         echo "\nНет данных о покупках. Запустите скрипт с аргументами {цена} и {описание покупки}.\n";
       } else {
           //print_r($data);
-          foreach ($data as $key => $row) {
+          foreach ($data as $row) {
             $list[] = explode(',', $row);
           }
-          //print_r($list);
           $total = 0.00;
-          foreach ($list as $key => $val) {
-            foreach ($val as $keyin => $value) {
-              if ($value === date('d.m.Y')) {
-                 if ($keyin = 1) {
-                   $total = $total + $val[$keyin];
-                 }
-              }
-            }
+          foreach ($list as $row) {
+             if ($row[0] === date('d.m.Y')) {
+                if ($keyin = 1) {
+                  $total += $row[1];
+                }
+             }
           }
           echo "\n".date('d.m.Y').' расход за день: '.number_format($total, 2, '.', '')."\n";
         }
