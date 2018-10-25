@@ -36,7 +36,7 @@ switch (json_last_error()) {
     echo ' — Неизвестная ошибка';
     break;
     }
-/*
+
 if (json_last_error() === JSON_ERROR_NONE) {
     foreach ($content['items'] as $book) {
         $authors = (!empty($book['volumeInfo']['authors'][0])) ? $book['volumeInfo']['authors'][0] : '';
@@ -44,21 +44,9 @@ if (json_last_error() === JSON_ERROR_NONE) {
         $title = (!empty($book['volumeInfo']['title'])) ? $book['volumeInfo']['title'] : '';
         $rec = file_put_contents("books.csv", [$id.',', $title.',', $authors."\n"], FILE_APPEND | LOCK_EX);
     }
-*/
 
-function getValue($arg) {
-    // возвращает сам элемент (если он не пуст) или пустую строку
-    return (!empty($arg)) ? $arg : '';
-}
 
-if (json_last_error() === JSON_ERROR_NONE) {
-    
-    foreach ($content['items'] as $book) {
-        $authors = getValue($book['volumeInfo']['authors'][0]);
-        $id = getValue($book['id']);
-        $title = getValue($book['volumeInfo']['title']);
-        $rec = file_put_contents("books.csv", [$id.',', $title.',', $authors."\n"], FILE_APPEND | LOCK_EX);
-    }
+
     
     //Выводим отладочную информацию в браузер
     if ($rec !== false) {
